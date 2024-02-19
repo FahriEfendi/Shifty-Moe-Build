@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
-import Dashboard from "../components/Dashboard";
+
+import Sidebar from "../../components/Sidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { getMe } from "../features/authSlice";
+import { getMe } from "../../features/authSlice";
 
-const DashboardPage = () => {
+
+const SidebarIF = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isError } = useSelector((state) => state.auth);
@@ -15,14 +17,15 @@ const DashboardPage = () => {
 
   useEffect(() => {
     if (isError) {
-      navigate("/login");
+      navigate("/");
     }
-  }, [isError, navigate]);
+  },[isError, navigate]);
+
   return (
    
-      <Dashboard />
-     
+      <Sidebar />
+   
   );
 };
 
-export default DashboardPage;
+export default SidebarIF;

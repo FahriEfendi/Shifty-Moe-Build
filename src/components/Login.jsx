@@ -28,7 +28,7 @@ const Login = () => {
     return (
         <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
             <Helmet>
-                <title>Welcome Admin | Log in</title>
+                <title>Admin Area | Log in</title>
             </Helmet>
             <div className="sm:mx-auto sm:w-full sm:max-w-sm">
                 <img
@@ -99,7 +99,7 @@ const Login = () => {
                 <p className="mt-10 text-center text-sm text-gray-500">
                     Not a member?{' '}
                     <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-                        Start a 14 day free trial
+                        Sign Up Here!
                     </a>
                 </p>
             </div>

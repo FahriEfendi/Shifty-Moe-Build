@@ -1,0 +1,287 @@
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { ColorModeContext, useMode } from "../theme";
+import { MyProSidebarProvider } from "../pages/global/sidebar/sidebarContext";
+import Topbar from "../pages/global/Topbar";
+import { Helmet } from 'react-helmet-async';
+import { CssBaseline, ThemeProvider, IconButton, Button,Box } from "@mui/material";
+import { tokens } from "../theme";
+import { DataGrid } from '@mui/x-data-grid';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { useNavigate } from 'react-router-dom';
+
+const Characterlist = () => {
+  const [character, setCharacter] = useState([]);
+  const [theme, colorMode] = useMode();
+  const colors = tokens(theme.palette.mode);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    getCharacter();
+  }, []);
+
+  const getCharacter = async () => {
+    const response = await axios.get("http://localhost:5000/character");
+    setCharacter(response.data);
+  };
+
+  const deleteUser = async (id) => {
+    await axios.delete(`http://localhost:5000/character/${id}`);
+    getCharacter();
+  };
+
+
+  const navigateToEditPage = (id) => {
+    navigate(`/character/edit/${id}`);
+  };
+
+  const Class = (kelas) => {
+    switch (kelas) {
+      case 1:
+        return 'Attacker';
+      case 2:
+        return 'Defender';
+        case 3:
+        return 'Supporter';
+      default:
+        return 'Unknown';
+    }
+  };
+
+  const Code = (code) => {
+    switch (code) {
+      case 1:
+        return 'Fire';
+      case 2:
+        return 'Water';
+      case 3:
+        return 'Wind';
+      case 4:
+        return 'Electric';
+      case 5:
+        return 'Iron';
+      default:
+        return 'Unknown';
+    }
+  };
+
+  const Weapon = (weapon) => {
+    switch (weapon) {
+      case 1:
+        return 'AR';
+      case 2:
+        return 'SMG';
+      case 3:
+        return 'SG';
+      case 4:
+        return 'SR';
+      case 5:
+        return 'RL';
+      case 6:
+        return 'MG';
+      default:
+        return 'Unknown';
+    }
+  };
+
+  const Company = (company) => {
+    switch (company) {
+      case 1:
+        return 'Elysion';
+      case 2:
+        return 'Missilis';
+      case 3:
+        return 'Tetra';
+      case 4:
+        return 'Pilgrim';
+      case 5:
+        return 'Abnormal';
+      default:
+        return 'Unknown';
+    }
+  };
+
+  const Squad = (squad) => {
+    switch (squad) {
+      case 1:
+        return 'Pioneer';
+      case 2:
+        return 'Pioneer';
+        case 3:
+        return 'Pioneer';
+      default:
+        return 'Unknown';
+    }
+  };
+
+  const Burst = (burst) => {
+    switch (burst) {
+      case 1:
+        return '1';
+      case 2:
+        return '2';
+        case 3:
+        return '3';
+      default:
+        return 'Unknown';
+    }
+  };
+
+  const Cube = (cube) => {
+    switch (cube) {
+      case 1:
+        return 'Adjutant Cube';
+      case 2:
+        return '2';
+        case 3:
+        return '3';
+      default:
+        return 'Unknown';
+    }
+  };
+
+  const Rarity = (rarity) => {
+    switch (rarity) {
+      case 1:
+        return 'SR';
+      case 2:
+        return 'SSR';
+      default:
+        return 'Unknown';
+    }
+  };
+
+  const renderActions = (params) => (
+    <div>
+
+      <IconButton onClick={() => navigateToEditPage(params.row.id)}>
+        <EditIcon />
+      </IconButton>
+
+
+      <IconButton onClick={() => deleteUser(params.row.id)}>
+        <DeleteIcon />
+      </IconButton>
+
+    </div>
+  );
+
+  return (
+    <ColorModeContext.Provider value={colorMode}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <MyProSidebarProvider>
+          <div style={{ height: "100%", width: "100%" }}>
+            <Helmet>
+              <title>Shifty | Karakter</title>
+            </Helmet>
+            <main>
+              <Topbar />
+              <Box m="20px">
+                <div>
+                  <h1 className="title">Daftar Pengguna</h1>
+                  <h2 className="subtitle">List of Users</h2>
+                  <Button href="/character/addchar" variant="contained" color="success">
+                    Add New
+                  </Button>
+                  <div style={{ height: 400, width: '100%' }}>
+                    <DataGrid
+                      rows={character}
+                      columns={[
+                        { field: 'id', headerName: 'No', width: 100 },
+                        { field: 'name', headerName: 'Name', width: 150 },
+                        {
+                            field: 'charclass',
+                            headerName: 'Class',
+                            width: 150,
+                            valueGetter: (params) => Class(params.row.charclass),
+                          },
+                        {
+                          field: 'code',
+                          headerName: 'Code',
+                          width: 150,
+                          valueGetter: (params) => Code(params.row.code),
+                        },
+                        {
+                            field: 'weapon',
+                            headerName: 'Weapon',
+                            width: 150,
+                            valueGetter: (params) => Weapon(params.row.weapon),
+                          },
+                          {
+                            field: 'company',
+                            headerName: 'Company ',
+                            width: 150,
+                            valueGetter: (params) => Company(params.row.company),
+                          },
+                          {
+                            field: 'squad',
+                            headerName: 'Squad ',
+                            width: 150,
+                            valueGetter: (params) => Squad(params.row.squad),
+                          },
+                          {
+                            field: 'burst',
+                            headerName: 'Burst',
+                            width: 150,
+                            valueGetter: (params) => Burst(params.row.burst),
+                          },
+                          {
+                            field: 'cube',
+                            headerName: 'Cube',
+                            width: 150,
+                            valueGetter: (params) => Cube(params.row.cube),
+                          },
+                          {
+                            field: 'rarity',
+                            headerName: 'Rarity',
+                            width: 150,
+                            valueGetter: (params) => Rarity(params.row.rarity),
+                          },
+                          {
+                            field: 'skill_1',
+                            headerName: 'Skill_1',
+                            width: 150,
+                           
+                          },
+                          {
+                            field: 'skill_2',
+                            headerName: 'Skill_2',
+                            width: 150,
+                          
+                          },
+                          {
+                            field: 'burst_skill',
+                            headerName: 'Burst_skill',
+                            width: 150,
+                           
+                          },
+                          {
+                            field: 'charimg',
+                            headerName: 'Avatar',
+                            width: 200,
+                          
+                          },
+                        {
+                          field: "action",
+                          headerName: "Action",
+                          width: 120,
+                          renderCell: renderActions,
+
+                        },
+                      ]}
+                      getRowId={(row) => row.id} // Use uuid or id as the row id
+                    />
+                  </div>
+                </div>
+                </Box>
+            </main>
+          </div>
+        </MyProSidebarProvider>
+      </ThemeProvider>
+    </ColorModeContext.Provider>
+  );
+};
+
+export default Characterlist;

@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Home from "../components/Home";
 
-const Welcome = () => {
+
+const HomePage = () => {
   return (
-
       <Home />
-
   );
 };
 
-export default Welcome;
+export default HomePage;

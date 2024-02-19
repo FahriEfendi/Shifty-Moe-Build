@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import Dashboard from "../components/Dashboard";
+import UserList from "../components/UserList";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getMe } from "../features/authSlice";
 
-const DashboardPage = () => {
+const UserListPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isError } = useSelector((state) => state.auth);
@@ -20,9 +20,9 @@ const DashboardPage = () => {
   }, [isError, navigate]);
   return (
    
-      <Dashboard />
+      <UserList />
      
   );
 };
 
-export default DashboardPage;
+export default UserListPage;

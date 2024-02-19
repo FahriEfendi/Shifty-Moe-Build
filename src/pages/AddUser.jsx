@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import Dashboard from "../components/Dashboard";
+import AddUser from "../components/FormAddUser";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { getMe } from "../features/authSlice";
 
-const DashboardPage = () => {
+const AddUserPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { isError } = useSelector((state) => state.auth);
@@ -15,14 +15,14 @@ const DashboardPage = () => {
 
   useEffect(() => {
     if (isError) {
-      navigate("/login");
+      navigate("/");
     }
   }, [isError, navigate]);
   return (
    
-      <Dashboard />
+      <AddUser />
      
   );
 };
 
-export default DashboardPage;
+export default AddUserPage;

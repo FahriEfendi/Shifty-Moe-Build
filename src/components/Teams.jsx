@@ -14,10 +14,10 @@ const users = {
 const navigation = [
     { name: 'Characters', href: '/', current: true },
     { name: 'Teams', href: '/teams', current: false },
-    { name: 'Tier List', href: '#', current: false },
-    { name: 'Calendar', href: '#', current: false },
-    { name: 'Reports', href: '#', current: false },
-]
+    { name: 'Item', href: '/item', current: false },
+    { name: 'Rapture', href: '#', current: false },
+    { name: 'Tools', href: '#', current: false },
+  ]
 const userNavigation = [
     { name: 'Your Profile', href: '#' },
     { name: 'Settings', href: '#' },
