@@ -50,7 +50,7 @@ function Item() {
    
     <div className="min-h-full bg-[#101633]">
       <Helmet>
-        <title>ItemList - Shifty.moe</title>
+        <title>Nikke Items List - Shifty.moe</title>
       </Helmet>
 
       <Disclosure as="nav" className="bg-gray-800">
@@ -230,7 +230,8 @@ function Item() {
                     </div>
                   </a>
                   <div className="text-center">
-                    <p className="text-sm text-white sm:text-base lg:text-lg xl:text-lg xl:text-sm xl:font-bold xl:text-slate-300">{item.name}</p>
+                    <p className="text-sm text-white sm:text-base lg:text-lg xl:text-lg xl:text-sm xl:font-bold xl:text-slate-300"> 
+                    {item.name.length > 8 ? `${item.name.substring(0, 8)}...` : item.name}</p>
                     {/* Add additional character information here */}
                   </div>
                 </div>

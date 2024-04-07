@@ -12,8 +12,8 @@ const users = {
         'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
 }
 const navigation = [
-    { name: 'Characters', href: '/', current: true },
-    { name: 'Teams', href: '/teams', current: false },
+    { name: 'Characters', href: '/', current: false },
+    { name: 'Teams', href: '/teams', current: true },
     { name: 'Item', href: '/item', current: false },
     { name: 'Rapture', href: '#', current: false },
     { name: 'Tools', href: '#', current: false },
@@ -27,11 +27,6 @@ const userNavigation = [
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
-
-
-/* function sortCharactersByStartDate(characters) {
-  return characters.slice().sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
-} */
 
 
 function sortCharactersByStartDate(characters) {
@@ -56,7 +51,7 @@ function Teams() {
     return (
         <div className="min-h-full bg-[#101633]">
             <Helmet>
-                <title>Home - Shifty.moe</title>
+                <title>Nikke Teams List - Shifty.moe</title>
             </Helmet>
             <Disclosure as="nav" className="bg-gray-800">
                 {({ open }) => (
@@ -209,12 +204,7 @@ function Teams() {
                 )}
             </Disclosure>
 
-            {/*   <header className="bg-white shadow">
-        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
-        </div>
-        <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8"> Selamat malam,{<strong>{user && user.nama}</strong>}</div>
-      </header> */}
+        
 
             <main className="container mx-auto max-w-screen-lg border-1 bg-[#1c1f46] p-7 mb-4 mt-5 rounded">
                 <div className="container mx-auto max-w-3/4 border-1 bg-sky-600 p-4 mb-4 rounded">

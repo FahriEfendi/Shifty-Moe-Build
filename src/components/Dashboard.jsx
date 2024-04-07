@@ -90,7 +90,7 @@ function Dashboard() {
 
                 <div className="flex-1 p-4 border rounded relative">
                   <h2 className="text-lg font-semibold mb-4 flex items-center">
-                    <span>Boss</span>
+                    <span>Monsters</span>
                     <span className="ml-2">2</span>
                     <FaDragon className="md:mt-3 md:mr-5 absolute right-0" style={{ fontSize: '2rem' }} />
                   </h2>

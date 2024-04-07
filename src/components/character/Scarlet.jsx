@@ -33,28 +33,17 @@ function classNames(...classes) {
 }
 
 
-function sortCharactersByStartDate(characters) {
-  return characters.slice().sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-}
-
 const Scarlet = () => {
   const { characterId } = useParams();
   const [name, setName] = useState("");
-  const [classValue, setClass] = useState("");
-  const [code, setCode] = useState("");
-  const [weapon, setWeapon] = useState("");
-  const [company, setCompany] = useState("");
-  const [squad, setSquad] = useState("");
+  const [classChar, setClass] = useState("");
   const [burst, setBurst] = useState("");
-  const [cube, setCube] = useState("");
   const [normal_attack, setNormal_attack] = useState("");
   const [skill_1, setSkill_1] = useState("");
   const [skill_2, setSkill_2] = useState("");
   const [burst_skill, setBurst_skill] = useState("");
   const [charimg, setCharImg] = useState("");
   const [msg, setMsg] = useState("");
-  const [CharId, getCharId] = useState([]);
-  const sortedCharacterData = sortCharactersByStartDate(CharId);
 
 
   useEffect(() => {
@@ -66,12 +55,7 @@ const Scarlet = () => {
 
         setName(response.data.name);
         setClass(response.data.charclass);
-        setCode(response.data.dataCode.name);
-        setWeapon(response.data.dataWeapon.name);
-        setCompany(response.data.dataCompany.name);
-        setSquad(response.data.dataSquad.name);
         setBurst(response.data.burst);
-        setCube(response.data.dataCube.name);
         setNormal_attack(response.data.normal_attack);
         setSkill_1(response.data.skill_1);
         setSkill_2(response.data.skill_2);
@@ -243,14 +227,6 @@ const Scarlet = () => {
           </>
         )}
       </Disclosure>
-
-      {/*   <header className="bg-white shadow">
-      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
-      </div>
-      <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8"> Selamat malam,{<strong>{user && user.nama}</strong>}</div>
-    </header> */}
-
       <main className="container mx-auto max-w-screen-lg border-1 bg-[#1c1f46] p-7 mb-4 mt-5 rounded ">
         <div className="container mx-auto max-w-3/4 border-1 bg-[#24285a] xl:p-0 p-4 md:p-0 xl:p-0 2xl:p-0 rounded">
           <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
@@ -265,8 +241,9 @@ const Scarlet = () => {
               </div>
 
               <div className="flex-grow flex flex-col justify-between">
+              <p>{msg}</p>
                 <div className="flex flex-col sm:flex-row items-center justify-between mb-4">
-                  <h1 className="font-bold text-[#dbddef] text-2xl mb-2 sm:mb-0">Scarlet</h1>
+                  <h1 className="font-bold text-[#dbddef] text-2xl mb-2 sm:mb-0">{name}</h1>
                   <div className="flex space-x-4">
                     <img
                       className="object-cover rounded-md w-10"
@@ -293,13 +270,13 @@ const Scarlet = () => {
                         src="https://static.dotgg.gg/nikke/icon/icn_burst_3.webp"
                       />
                     )}
-                    {classValue === 1 ? (
+                    {classChar === 1 ? (
                       <img
                         alt="class 1"
                         className="character-type-image"
                         src="https://static.dotgg.gg/nikke/icon/icn_class_attacker.webp"
                       />
-                    ) : classValue === 2 ? (
+                    ) : classChar === 2 ? (
                       <img
                         alt="class 2"
                         className="character-type-image "

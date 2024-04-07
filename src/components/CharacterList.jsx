@@ -107,10 +107,22 @@ const Characterlist = () => {
       case 1:
         return 'Pioneer';
       case 2:
-        return 'Pioneer';
-        case 3:
-        return 'Pioneer';
-      default:
+        return '777';
+      case 3:
+        return 'Mighty Tools';
+      case 4:
+        return 'YoRHa';
+      case 5:
+        return 'Maid For You';
+      case 6:
+        return 'Counters';
+      case 7:
+        return 'A.C.P.U';
+      case 8:
+        return 'Unlimited';
+      case 9:
+        return 'Heretic';
+       default:
         return 'Unknown';
     }
   };
@@ -133,9 +145,19 @@ const Characterlist = () => {
       case 1:
         return 'Adjutant Cube';
       case 2:
-        return '2';
-        case 3:
-        return '3';
+        return 'Assault Cube';
+      case 3:
+        return 'Bastion Cube';
+      case 4:
+        return 'Onslaught Cube';
+      case 5:
+        return 'Quantum Cube';
+      case 6:
+        return 'Resilience Cube';
+      case 7:
+        return 'Vigor Cube';
+      case 8:
+        return 'Wingman Cube';
       default:
         return 'Unknown';
     }
@@ -180,8 +202,8 @@ const Characterlist = () => {
               <Topbar />
               <Box m="20px">
                 <div>
-                  <h1 className="title">Daftar Pengguna</h1>
-                  <h2 className="subtitle">List of Users</h2>
+                  <h1 className="title">Daftar Karakter</h1>
+                  <h2 className="subtitle">List of Character</h2>
                   <Button href="/character/addchar" variant="contained" color="success">
                     Add New
                   </Button>
@@ -189,7 +211,7 @@ const Characterlist = () => {
                     <DataGrid
                       rows={character}
                       columns={[
-                        { field: 'id', headerName: 'No', width: 100 },
+                        { field: 'id', headerName: 'Id', width: 100 },
                         { field: 'name', headerName: 'Name', width: 150 },
                         {
                             field: 'charclass',

@@ -57,14 +57,14 @@ function EditItem() {
         <MyProSidebarProvider>
           <div className="min-h-full" style={{ height: "100%", width: "100%" }}>
             <Helmet>
-              <title>Nikke Characters List - Shifty.moe</title>
+              <title>Shifty | Edit Item</title>
             </Helmet>
             <Topbar />
             <main className="w-11/12 md:w-9/12 border-1 p-4 mb-4 rounded mx-auto">
             <Box m="20px">
                 <div>
-                  <h1 className="title">Tambah Pengguna</h1>
-                  <h2 className="subtitle">Add New User</h2>
+                  <h1 className="title">Merubah Perlengkapan</h1>
+                  <h2 className="subtitle">Edit Item</h2>
                   <div className="card is-shadowless">
                     <div className="card-content">
                       <div className="content">

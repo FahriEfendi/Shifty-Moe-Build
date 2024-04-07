@@ -21,6 +21,16 @@ import ItemList from "./pages/Item";
 // Admin
 
 
+// Char
+import Quiry from "./components/character/Quiry";
+import Rapi from "./components/character/Rapi";
+import Liter from "./components/character/Liter";
+import Alice from "./components/character/Alice";
+import YoRHa2B from "./components/character/2B";
+import Rapunzel from "./components/character/Rapunzel";
+import Noir from "./components/character/Noir";
+import Blanc from "./components/character/Blanc";
+
 function App() {
   return (
     <Router>
@@ -43,6 +53,14 @@ function App() {
           <Route path="/character/poli" element={<Poli />} />
           <Route path="/character/modernia" element={<Modernia />} />
           <Route path="/character/privaty-unkind-maid" element={<PrivatyUnkindMaid />} />
+          <Route path="/character/quiry" element={<Quiry />} />
+          <Route path="/character/rapi" element={<Rapi />} />
+          <Route path="/character/liter" element={<Liter />} />
+          <Route path="/character/alice" element={<Alice />} />
+          <Route path="/character/2b" element={<YoRHa2B />} />
+          <Route path="/character/rapunzel" element={<Rapunzel />} />
+          <Route path="/character/noir" element={<Noir />} />
+          <Route path="/character/blanc" element={<Blanc />} />
           <Route path="/item" element={<ItemList />} />
         </Routes>
       </div>

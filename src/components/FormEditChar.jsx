@@ -79,7 +79,7 @@ function AddChar() {
         burst_skill: burst_skill
       });
 
-      navigate("/character");
+      navigate("/admin/character");
     } catch (error) {
       if (error.response) {
         setMsg(error.response.data.msg);
@@ -94,14 +94,14 @@ function AddChar() {
         <MyProSidebarProvider>
           <div className="min-h-full" style={{ height: "100%", width: "100%" }}>
             <Helmet>
-              <title>Nikke Characters List - Shifty.moe</title>
+              <title>Shifty | Edit Karakter</title>
             </Helmet>
             <Topbar />
             <main className="w-11/12 md:w-9/12 border-1 p-4 mb-4 rounded mx-auto">
             <Box m="20px">
                 <div>
-                  <h1 className="title">Tambah Pengguna</h1>
-                  <h2 className="subtitle">Add New User</h2>
+                <h1 className="title">Merubah Karkter</h1>
+                  <h2 className="subtitle">Edit Character </h2>
                   <div className="card is-shadowless">
                     <div className="card-content">
                       <div className="content">
@@ -207,10 +207,14 @@ function AddChar() {
                               onChange={(e) => setSquad(e.target.value)}
                             >
                               <MenuItem value={1}>Pioneer</MenuItem>
-                              <MenuItem value={2}>Pioneer</MenuItem>
-                              <MenuItem value={3}>Pioneer</MenuItem>
-                              <MenuItem value={4}>Pioneer</MenuItem>
-                              <MenuItem value={5}>Pioneer</MenuItem>
+                              <MenuItem value={2}>777</MenuItem>
+                              <MenuItem value={3}>Mighty Tools</MenuItem>
+                              <MenuItem value={4}>YoRHa</MenuItem>
+                              <MenuItem value={5}>Maid For You</MenuItem>
+                              <MenuItem value={6}>Counters</MenuItem>
+                              <MenuItem value={7}>A.C.P.U</MenuItem>
+                              <MenuItem value={8}>Unlimited</MenuItem>
+                              <MenuItem value={9}>Heretic</MenuItem>
                              
                             </Select>
                           </FormControl>
@@ -246,8 +250,13 @@ function AddChar() {
                               onChange={(e) => setCube(e.target.value)}
                             >
                               <MenuItem value={1}>Adjutant Cube</MenuItem>
-                              <MenuItem value={2}>Adjutant Cube</MenuItem>
-                              <MenuItem value={3}>Adjutant Cube</MenuItem>
+                              <MenuItem value={2}>Assault Cube</MenuItem>
+                              <MenuItem value={3}>Bastion Cube</MenuItem>
+                              <MenuItem value={4}>Onslaught Cube</MenuItem>
+                              <MenuItem value={5}>Quantum Cube</MenuItem>
+                              <MenuItem value={6}>Resilience Cube</MenuItem>
+                              <MenuItem value={7}>Vigor Cube</MenuItem>
+                              <MenuItem value={8}>Wingman Cube</MenuItem>
                             </Select>
                           </FormControl>
                           <br />
