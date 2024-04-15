@@ -134,7 +134,7 @@ function Dashboard() {
   }, []);
 
   const getAllChar = async () => {
-    const response = await axios.get("http://localhost:5000/character");
+    const response = await axios.get("http://103.84.207.139:5000/character");
     setCharData(response.data);
   };
 
