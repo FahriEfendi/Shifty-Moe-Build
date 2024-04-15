@@ -36,7 +36,7 @@ const Privaty_Unkind_Maid = () => {
     const getCharId = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:5000/character/102`
+          `http://103.84.207.139:5000/character/102`
         );
         setName(response.data.name);
         setClass(response.data.charclass);
